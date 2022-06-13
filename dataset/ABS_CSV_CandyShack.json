@@ -1,0 +1,43 @@
+{
+	"name": "ABS_CSV_CandyShack",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStoragesimpledata",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter 3"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "2020-04.csv",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/CandyShack",
+				"container": "simpledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
