@@ -1,0 +1,53 @@
+{
+	"name": "ABS_JSON_SugarCube",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStoragesimpledata",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter 3"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "August.json",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/SugarCube/2020/Q3",
+				"container": "simpledata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Month": {
+					"type": "string"
+				},
+				"Company": {
+					"type": "string"
+				},
+				"Sales": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Product": {
+								"type": "string"
+							},
+							"ManufacturerProductCode": {
+								"type": "string"
+							},
+							"Units": {
+								"type": "integer"
+							},
+							"Value": {
+								"type": "number"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

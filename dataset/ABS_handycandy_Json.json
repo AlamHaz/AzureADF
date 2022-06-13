@@ -1,0 +1,52 @@
+{
+	"name": "ABS_handycandy_Json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStoragesimpledata",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter 3"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/HandyCandy",
+				"container": "simpledata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Month": {
+					"type": "string"
+				},
+				"Company": {
+					"type": "string"
+				},
+				"Sales": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Product": {
+								"type": "string"
+							},
+							"ManufacturerProductCode": {
+								"type": "string"
+							},
+							"Units": {
+								"type": "integer"
+							},
+							"Value": {
+								"type": "number"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

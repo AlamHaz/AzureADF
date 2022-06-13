@@ -1,12 +1,9 @@
 {
-	"name": "ABS_CSV_CandyShack",
+	"name": "DelimitedText1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStoragesimpledata",
 			"type": "LinkedServiceReference"
-		},
-		"folder": {
-			"name": "Chapter 3"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
