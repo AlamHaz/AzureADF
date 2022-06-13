@@ -1,0 +1,42 @@
+{
+	"name": "ABS_CSV_SweetTreats",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStoragesimpledata",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Chapter 3"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales.csv",
+				"folderPath": "azure-data-factory-by-example-main/SampleData/SweetTreats/Apr-20",
+				"container": "simpledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
