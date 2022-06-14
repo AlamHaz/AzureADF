@@ -1,0 +1,10 @@
+{
+	"name": "adfbyexamplekeyvalutlinkservice",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://adfbyexamplekey.vault.azure.net/"
+		}
+	}
+}
