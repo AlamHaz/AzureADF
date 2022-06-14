@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Log pipeline outcome",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -66,6 +66,70 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Log pipeline outcome Procedure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Log pipeline outcome",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[LogPipelineExecution]",
+					"storedProcedureParameters": {
+						"FilesRead": {
+							"value": {
+								"value": "@activity('Log pipeline outcome').output.filesread",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"PipelineRunId": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "Guid"
+						},
+						"RowsCopied": {
+							"value": {
+								"value": "@activity('Log pipeline outcome').output.rowscopied",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RowsRead": {
+							"value": {
+								"value": "@activity('Log pipeline outcome').output.rowsread",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RunEndDateTime": {
+							"value": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqllinkservicechap3",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"folder": {
